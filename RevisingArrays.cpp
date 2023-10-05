@@ -21,10 +21,27 @@ void usingSimpleArrays(){
 
 // this function shows how to use 2 and 3 dimensional arrays
 void usingTwoDimensionalArrays(){
-    
+    int matrixOne[2][2]; // we declare the array by using this method
+
+    // we fill the array by transversing it
+    for (int i = 0; i<2; i++){
+        for (int j = 0; j<2; j++){
+            matrixOne[i][j] = j+1;
+        }
+    }
+
+    // print the matrix by transversing it still
+
+    for (int i = 0; i<2; i++){
+        printf("\nRow %d:\t", i+1);
+        for (int j=0; j<2; j++){
+            printf("%d\t", j+1);
+        }
+    }
 }
 
 int main(void){
-    usingSimpleArrays();
+    // usingSimpleArrays();
+    usingTwoDimensionalArrays();
     return 0;   
 }
