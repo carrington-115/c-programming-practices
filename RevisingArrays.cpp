@@ -21,8 +21,7 @@ void usingSimpleArrays(){
 
 // this function shows how to use 2 and 3 dimensional arrays
 void usingTwoDimensionalArrays(){
-    int matrixOne[2][2]; // we declare the array by using this method
-
+    int matrixOne[2][2]; // we declare the array by using this method....
     // we fill the array by transversing it
     for (int i = 0; i<2; i++){
         for (int j = 0; j<2; j++){
@@ -30,8 +29,7 @@ void usingTwoDimensionalArrays(){
         }
     }
 
-    // print the matrix by transversing it still
-
+    // print the matrix by transversing it still....
     for (int i = 0; i<2; i++){
         printf("\nRow %d:\t", i+1);
         for (int j=0; j<2; j++){
@@ -40,8 +38,32 @@ void usingTwoDimensionalArrays(){
     }
 }
 
+void usingThreeDimensionalArrays(){
+    int matrixTwo[2][2][2]; // declaring the 3X3 matrix...
+    // we will be using i, j, and k
+    for (int i = 0; i<2; i++){
+        for(int j = 0; j<2; j++){
+            for (int k = 0; k<2; k++){
+                matrixTwo[i][j][k] = k+1;
+            }
+        }
+    }
+
+    // print the matrix values
+    for (int i = 0; i<2; i++){
+        printf("\n\nThis is the %d matrix", i+1);
+        for(int j = 0; j<2; j++){
+            printf("\n");
+            for (int k = 0; k<2; k++){
+                printf("%d\t", k+1);
+            }
+        }
+    }
+}
+
 int main(void){
     // usingSimpleArrays();
-    usingTwoDimensionalArrays();
+    // usingTwoDimensionalArrays();
+    // usingThreeDimensionalArrays();
     return 0;   
 }
