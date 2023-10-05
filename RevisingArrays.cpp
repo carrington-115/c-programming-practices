@@ -61,9 +61,18 @@ void usingThreeDimensionalArrays(){
     }
 }
 
+
+// using pointers and arrays
+void usingPointersAndArray(){
+    int numbers[5] = {1, 2, 3, 4, 5};
+    int* ptr = &numbers[0];
+    printf("The address of the array name: %u\n The address of the first element of the array: %u", numbers, &numbers[0]);
+}
+
 int main(void){
     // usingSimpleArrays();
     // usingTwoDimensionalArrays();
     // usingThreeDimensionalArrays();
+    usingPointersAndArray();
     return 0;   
 }
