@@ -22,7 +22,8 @@ int* generatePrimeNumbers(int length){
     while (i<=length){
         bool prime = identifyPrimeNumbers(i);
         if (prime == true){
-            primeList[i] = i;
+            int num = i;
+            primeList[i] = num;
         }
     }
     return primeList;
