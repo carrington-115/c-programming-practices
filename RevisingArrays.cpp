@@ -66,7 +66,17 @@ void usingThreeDimensionalArrays(){
 void usingPointersAndArray(){
     int numbers[5] = {1, 2, 3, 4, 5};
     int* ptr = &numbers[0];
+    /*
+        The print statement below shows that the address of the name of the array and first element of the 
+        array are the same. This means that both values are stored in the same address.
+
+        %u --> prints the address in hexadecimal number
+        %p --> prints the address in decimal number
+    */
     printf("The address of the array name: %u\n The address of the first element of the array: %u", numbers, &numbers[0]);
+
+    // printing the values of the 
+
 }
 
 int main(void){
