@@ -12,8 +12,34 @@ void computeThreeNumbers(float a, float b, float c){
     printf("\nThe average of %f, %f, and %f is: %f", a, b, c, average);
 }
 
+void findDigitsSum(){
+    printf("how many digits does the number have: \t");
+    int numberLength;
+    scanf("%d", &numberLength);
+    int numberDigits[numberLength];
+    for (int i = 0; i<numberLength; i++){
+        int digit = 0;
+        printf("\nEnter the %d digit of the number:\t", i+1);
+        scanf("%d", &digit);
+        numberDigits[i] = digit;
+    }
+    printf("\n\nThis is the nubmer you entered:\t\t");
+    for (int i = 0; i<numberLength; i++){
+        printf("%d", numberDigits[i]);
+    }
+
+    int sum = 0, i = 0;
+    while (i<numberLength){
+        sum = sum + numberDigits[i];
+        i++;
+    }
+
+    printf("\n\nThe sum of the digits is: %d", sum);
+}
+
 
 int main(void){
-    computeThreeNumbers(1, 2, 3);
+    // computeThreeNumbers(1, 2, 3); ----> function worked correctly to find the sum and the average of the 3 nubmers
+    findDigitsSum();
     return 0;
 }
