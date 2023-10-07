@@ -4,7 +4,7 @@
 // a program that checks if a number is a perfect square
 bool checkIfNumberPerfectSquare(float number, float result){
     printf("\nThe square root of the number is: \t%f", result);
-    if(result == (number*number)){
+    if(result == number){
         return true;
     }else{
         return false;
