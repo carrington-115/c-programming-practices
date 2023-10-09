@@ -38,26 +38,42 @@ void findDigitsSum(){
 }
 
 int fibonacci(int n){
+    int value;
     if (n==1){
-        return 1;
+        value = 1;
+        return value;
     }
     else{
-        return fibonacci(n-1)
+        value = n-1;
+        return value;
     }
 }
 // this function generates a fibonacci sequence from 1 to n
 void fibonacciSequence(int n){
-    int sequence[n], i = 1;
+    int sequence[n]; 
+    int i = n;
     // since every fibonacci starts with 1
-    int number = 0;
-    while (i<n){
-        number = i
+    int number = 0, j = 0;
+    while (j < n){
+        number = fibonacci(i);
+        sequence[j] = number;
+        i = number;  // this is a non-tail recursion algorithm
+        j++;
+    }
+
+    printf("\nThis is the fibonacci sequence of %d elements: ", n);
+    for (int i = n-1; i >= 0; i--){
+        printf("\t%d,\t", sequence[i]);
     }
 
 }
 
 int main(void){
     // computeThreeNumbers(1, 2, 3); ----> function worked correctly to find the sum and the average of the 3 nubmers
-    // findDigitsSum();
+    // findDigitsSum(); // this is the program to find all the sum of the digits in a number
+    printf("\nHow many elements do you want in the fibonacci sequence: \t");
+    int length;
+    scanf("%d", &length);
+    fibonacciSequence(length);
     return 0;
 }
