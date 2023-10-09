@@ -37,9 +37,27 @@ void findDigitsSum(){
     printf("\n\nThe sum of the digits is: %d", sum);
 }
 
+int fibonacci(int n){
+    if (n==1){
+        return 1;
+    }
+    else{
+        return fibonacci(n-1)
+    }
+}
+// this function generates a fibonacci sequence from 1 to n
+void fibonacciSequence(int n){
+    int sequence[n], i = 1;
+    // since every fibonacci starts with 1
+    int number = 0;
+    while (i<n){
+        number = i
+    }
+
+}
 
 int main(void){
     // computeThreeNumbers(1, 2, 3); ----> function worked correctly to find the sum and the average of the 3 nubmers
-    findDigitsSum();
+    // findDigitsSum();
     return 0;
 }
