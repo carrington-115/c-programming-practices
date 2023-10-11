@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 // this file contains all the solutions of the lab exercises
 
@@ -68,12 +69,58 @@ void fibonacciSequence(int n){
 
 }
 
+void checkArmStrongNumber(int length, int checkNumber){
+    // the length variable is the numbers of digits that are in the number
+    int number[length];
+    int initial = checkNumber;
+    for (int i = 0; i < length; i++){
+        int value;
+        printf("\nEnter the %d digit:\t", i+1);
+        scanf("%d", &value);
+        number[i] = value;
+    }
+
+    printf("That means you want to check if ");
+    for (int i=0; i<length; i++){
+        printf("%d", number[i]);
+    }
+    printf(" is an armstrong number. Enter y (yes) or n (no) to confirm if you want to continue");
+    char answer = ' ';
+    while (true){
+        scanf("%c",&answer);
+        if (answer == ' '){
+            printf("\nYou need to enter the value of answer. It cannot be an empty string");
+            continue;
+        }else{
+            if (answer == 'y'){
+                int checkSum = 0;
+                for (int i = 0; i < length; i++){
+                    checkSum = checkSum + pow(number[i], length);
+                }
+                if (checkSum == initial){
+                    printf("\nThe number you entered is an Armstrong number");
+                }else{
+                    printf("\nThe number you entered is not an Armstrong number");
+                }
+            }
+            else{
+                printf("\n\nYou entered n (No) so you don't want to proceed. Re run the program to do the check");
+            }
+            break;
+        }        
+    }
+    
+
+}
+
 int main(void){
     // computeThreeNumbers(1, 2, 3); ----> function worked correctly to find the sum and the average of the 3 nubmers
     // findDigitsSum(); // this is the program to find all the sum of the digits in a number
-    printf("\nHow many elements do you want in the fibonacci sequence: \t");
-    int length;
-    scanf("%d", &length);
-    fibonacciSequence(length);
+    // fibonacciSequence(length);
+   
+   checkArmStrongNumber(3, 153);
+   
+   
+   
     return 0;
 }
