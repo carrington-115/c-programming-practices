@@ -109,19 +109,48 @@ void checkArmStrongNumber(int length, int checkNumber){
     }
                 
 }
-    
+
+bool identifyPrimeNumbers(int num){
+    int i=1;
+    bool checkPrime;
+    while(i<=num){
+        if((i != 1) && (i != num)){
+            if((num % i) == 0){
+                checkPrime = false;
+                break;
+            }
+        }else{
+            checkPrime = true;
+        }
+        i++;
+    }
+    return checkPrime;
+}
+
+void generatePrimeNumbers(int n){
+    // verifying that a prime number is a number that can only divide 1 and itself
+    // identifyPrimeNumbers(int n); ==> We use this function to check if the number is a prime number
+    printf("The prime numbers of 1 to %d are: \t", n);
+    int i = 1;
+    while(i <= n){
+        bool checkIfPrime = identifyPrimeNumbers(i);
+        if(checkIfPrime == true){
+            printf("%d, ", i);
+        }
+        i++;
+    }
+}
+
 
 int main(void){
     // computeThreeNumbers(1, 2, 3); ----> function worked correctly to find the sum and the average of the 3 nubmers
     // findDigitsSum(); // this is the program to find all the sum of the digits in a number
     // fibonacciSequence(length);
-    printf("\nThis program is used to test if a number that you entered is an armstrong number");
-    printf("\nFor the verification to go successfully, you'll need to enter the number of digits in the number");
-    int length, number;
-    printf("\nEnter the length of the number:\t");
-    scanf("%d", &length);
-    printf("\nEnter the number:\t");
+    // checkArmStrongNumber(length, number);
+    printf("This program generates prime numbers for the number you entered from 1 to the number");
+    printf("\nEnter the maximum number:\t");
+    int number;
     scanf("%d", &number);
-    checkArmStrongNumber(length, number);
+    generatePrimeNumbers(number);
     return 0;
 }
