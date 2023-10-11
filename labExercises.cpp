@@ -84,43 +84,44 @@ void checkArmStrongNumber(int length, int checkNumber){
     for (int i=0; i<length; i++){
         printf("%d", number[i]);
     }
-    printf(" is an armstrong number. Enter y (yes) or n (no) to confirm if you want to continue");
-    char answer = ' ';
-    while (true){
-        scanf("%c",&answer);
-        if (answer == ' '){
-            printf("\nYou need to enter the value of answer. It cannot be an empty string");
-            continue;
-        }else{
-            if (answer == 'y'){
-                int checkSum = 0;
-                for (int i = 0; i < length; i++){
-                    checkSum = checkSum + pow(number[i], length);
-                }
-                if (checkSum == initial){
-                    printf("\nThe number you entered is an Armstrong number");
-                }else{
-                    printf("\nThe number you entered is not an Armstrong number");
-                }
+    printf(" is an armstrong number. \nEnter 1 (yes) or 0 (no) to confirm if you want to continue");
+    int response;
+    printf("\nEnter your response to continue:\t");
+    scanf("%d", &response);
+
+    switch (response){
+        case 1:
+            {int checkSum = 0;
+            for (int i = 0; i < length; i++){
+                checkSum = checkSum + pow(number[i], length);
             }
-            else{
-                printf("\n\nYou entered n (No) so you don't want to proceed. Re run the program to do the check");
+            if (checkSum == initial){
+                printf("\nThe number you entered is an Armstrong number");
+            }else{
+                printf("\nThe number you entered is not an Armstrong number");
             }
             break;
-        }        
+            }
+        
+        default:
+            printf("\n\nAn error happened; Rerun the program or check your code");
+            break;
     }
-    
-
+                
 }
+    
 
 int main(void){
     // computeThreeNumbers(1, 2, 3); ----> function worked correctly to find the sum and the average of the 3 nubmers
     // findDigitsSum(); // this is the program to find all the sum of the digits in a number
     // fibonacciSequence(length);
-   
-   checkArmStrongNumber(3, 153);
-   
-   
-   
+    printf("\nThis program is used to test if a number that you entered is an armstrong number");
+    printf("\nFor the verification to go successfully, you'll need to enter the number of digits in the number");
+    int length, number;
+    printf("\nEnter the length of the number:\t");
+    scanf("%d", &length);
+    printf("\nEnter the number:\t");
+    scanf("%d", &number);
+    checkArmStrongNumber(length, number);
     return 0;
 }
