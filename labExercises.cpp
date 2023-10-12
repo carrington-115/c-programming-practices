@@ -160,6 +160,51 @@ void checkIfPerfectSquare(int number){
     }
 }
 
+void computeIntegersWithSign(char sign, int num1, int num2){
+    printf("\nWhat operation do you want to carry:\t");
+    scanf("%c", &sign);
+    printf("Enter the values of the first and second number you want to carry the computation on: \t");
+    scanf("%d%d", &num1, &num2);
+    int result = 0;
+    switch (sign)
+    {
+    case '+':{
+        result = num1 + num2;
+        break;
+    }
+    case '-':{
+        result = num1 - num2;
+        break;
+    }
+    case '*': {
+        result = num1 * num2;
+        break;
+    }
+    case '/':{
+        if (num2 != 0){
+            result = num1/num2;
+            break;
+        }else{
+            printf("\nCannot compute division by 0");
+            break;
+        }
+    }
+    case '%':{
+        result = num1 % num2;
+        break;
+    }
+
+    default:
+        break;
+    }
+
+    if (result != 0){
+        printf("\n\nThe computation of %d %c %d is %d\n", num1, sign, num2, result);
+    }else{
+        printf("\n\nYou opted to compute division by 0. This is not possible. Try another computation");
+    }
+}
+
 
 int main(void){
     // computeThreeNumbers(1, 2, 3); ----> function worked correctly to find the sum and the average of the 3 nubmers
@@ -167,10 +212,9 @@ int main(void){
     // fibonacciSequence(length);
     // checkArmStrongNumber(length, number);
     // generatePrimeNumbers(number);
-
-    printf("Enter the number you want to check if it's a perfect square:\t");
-    int number;
-    scanf("%d", &number);
-    checkIfPerfectSquare(number);
+    // checkIfPerfectSquare(number);
+    int num1, num2;
+    char sign;
+    computeIntegersWithSign(sign, num1, num2);
     return 0;
 }
