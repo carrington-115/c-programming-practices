@@ -141,16 +141,80 @@ void generatePrimeNumbers(int n){
     }
 }
 
+void checkIfPerfectSquare(int number){
+    // this function will be used to check if a number is a perfect square or not
+    int i = 0;
+    bool perfectSquare = false;
+    while (i < number){
+        int square = pow(i, 2);
+        if (square == number){
+            perfectSquare = true;
+            break;
+        }
+        i++;
+    }
+    if(perfectSquare == true){
+        printf("\n\n%d is a perfect square", number);
+    }else{
+        printf("\n\n%d is not a perfect square", number);
+    }
+}
+
+void computeIntegersWithSign(char sign, int num1, int num2){
+    printf("\nWhat operation do you want to carry:\t");
+    scanf("%c", &sign);
+    printf("Enter the values of the first and second number you want to carry the computation on: \t");
+    scanf("%d%d", &num1, &num2);
+    int result = 0;
+    switch (sign)
+    {
+    case '+':{
+        result = num1 + num2;
+        break;
+    }
+    case '-':{
+        result = num1 - num2;
+        break;
+    }
+    case '*': {
+        result = num1 * num2;
+        break;
+    }
+    case '/':{
+        if (num2 != 0){
+            result = num1/num2;
+            break;
+        }else{
+            printf("\nCannot compute division by 0");
+            break;
+        }
+    }
+    case '%':{
+        result = num1 % num2;
+        break;
+    }
+
+    default:
+        break;
+    }
+
+    if (result != 0){
+        printf("\n\nThe computation of %d %c %d is %d\n", num1, sign, num2, result);
+    }else{
+        printf("\n\nYou opted to compute division by 0. This is not possible. Try another computation");
+    }
+}
+
 
 int main(void){
     // computeThreeNumbers(1, 2, 3); ----> function worked correctly to find the sum and the average of the 3 nubmers
     // findDigitsSum(); // this is the program to find all the sum of the digits in a number
     // fibonacciSequence(length);
     // checkArmStrongNumber(length, number);
-    printf("This program generates prime numbers for the number you entered from 1 to the number");
-    printf("\nEnter the maximum number:\t");
-    int number;
-    scanf("%d", &number);
-    generatePrimeNumbers(number);
+    // generatePrimeNumbers(number);
+    // checkIfPerfectSquare(number);
+    int num1, num2;
+    char sign;
+    computeIntegersWithSign(sign, num1, num2);
     return 0;
 }
