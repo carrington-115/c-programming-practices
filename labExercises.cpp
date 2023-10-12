@@ -141,16 +141,36 @@ void generatePrimeNumbers(int n){
     }
 }
 
+void checkIfPerfectSquare(int number){
+    // this function will be used to check if a number is a perfect square or not
+    int i = 0;
+    bool perfectSquare = false;
+    while (i < number){
+        int square = pow(i, 2);
+        if (square == number){
+            perfectSquare = true;
+            break;
+        }
+        i++;
+    }
+    if(perfectSquare == true){
+        printf("\n\n%d is a perfect square", number);
+    }else{
+        printf("\n\n%d is not a perfect square", number);
+    }
+}
+
 
 int main(void){
     // computeThreeNumbers(1, 2, 3); ----> function worked correctly to find the sum and the average of the 3 nubmers
     // findDigitsSum(); // this is the program to find all the sum of the digits in a number
     // fibonacciSequence(length);
     // checkArmStrongNumber(length, number);
-    printf("This program generates prime numbers for the number you entered from 1 to the number");
-    printf("\nEnter the maximum number:\t");
+    // generatePrimeNumbers(number);
+
+    printf("Enter the number you want to check if it's a perfect square:\t");
     int number;
     scanf("%d", &number);
-    generatePrimeNumbers(number);
+    checkIfPerfectSquare(number);
     return 0;
 }
