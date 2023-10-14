@@ -206,6 +206,8 @@ void computeIntegersWithSign(char sign, int num1, int num2){
 }
 
 
+
+
 int main(void){
     // computeThreeNumbers(1, 2, 3); ----> function worked correctly to find the sum and the average of the 3 nubmers
     // findDigitsSum(); // this is the program to find all the sum of the digits in a number
@@ -213,8 +215,6 @@ int main(void){
     // checkArmStrongNumber(length, number);
     // generatePrimeNumbers(number);
     // checkIfPerfectSquare(number);
-    int num1, num2;
-    char sign;
-    computeIntegersWithSign(sign, num1, num2);
+    // computeIntegersWithSign(sign, num1, num2);
     return 0;
 }

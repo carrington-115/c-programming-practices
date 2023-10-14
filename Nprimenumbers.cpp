@@ -2,49 +2,39 @@
 
 bool identifyPrimeNumbers(int num){
     int i=1;
-    bool checkPrime = false;
+    bool checkPrime;
     while(i<=num){
         if((i != 1) && (i != num)){
             if((num % i) == 0){
-                checkPrime = true;
+                checkPrime = false;
                 break;
             }
         }else{
-            checkPrime = false;
+            checkPrime = true;
         }
         i++;
     }
     return checkPrime;
 }
-int* generatePrimeNumbers(int length){
-    int* primeList[] = {};
-    int i=1;
-    while (i<=length){
-        bool prime = identifyPrimeNumbers(i);
-        if (prime == true){
-            int num = i;
-            primeList[i] = num;
+
+void generatePrimeNumbers(int n){
+    // verifying that a prime number is a number that can only divide 1 and itself
+    // identifyPrimeNumbers(int n); ==> We use this function to check if the number is a prime number
+    printf("The prime numbers of 1 to %d are: \t", n);
+    int i = 1;
+    while(i <= n){
+        bool checkIfPrime = identifyPrimeNumbers(i);
+        if(checkIfPrime == true){
+            printf("%d, ", i);
         }
+        i++;
     }
-    return primeList;
 }
 
 int main(void){
-    printf("This program is to find the list of prime numbers between 1 and n, where end is the final number \n");
-    printf("Enter the final number: \t");
+    printf("Enter the number that you want to print its prime numbers from 1 to n:\t");
     int number;
     scanf("%d", &number);
-    int* primeNumbers = generatePrimeNumbers(number);
-    printf("\nHere is the list of prime numbers from 1 to %d", number);
-    int i = 0;
-    while (i < number){
-        num = primeNumbers[i];
-        if(num != NULL){
-            printf("\t%d");
-        }
-        else{
-            printf("\nThere is an error somewhere else there are no primes numbers");
-        }
-    }
+    generatePrimeNumbers(number);
     return 0;
 }
